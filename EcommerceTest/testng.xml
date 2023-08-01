@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="1" name="chrome">
+    <classes>
+      <class name="com.example.EcommerceTest.FlipkartTestWithChrome"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="1" name="firefox">
+    <classes>
+      <class name="com.example.EcommerceTest.FlipkartTestWithFirefox"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="1" name="edge">
+    <classes>
+      <class name="com.example.EcommerceTest.FlipkartTestWIthEdge"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
