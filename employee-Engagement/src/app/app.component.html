@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<div [class]="navEnable?'show':'hide'">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+  *{
+    font-family: Courgette
+  }
+  
+  a{
+
+    margin: 0px 10px;
+    text-decoration: none;
+  }
+  div{
+    text-align: center;
+  }
+  body{
+    background: linear-gradient(to right,white,rgb(152, 152, 190),);
+  }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00000054;width:100%">
+      
+      <i class="fa-sharp fa-solid fa-people-roof fa-bounce fa-2xl" style="color: #4c37b3;"></i>
+      <div class="container-fluid ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button></div>
+        <div class="navs collapse navbar-collapse navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo02" >
+          <a class="nav-links navs" routerLink="/home">home</a>
+          <a class="nav-links navs" routerLink="/employees" style="margin-right: 20px;">employees</a>
+          <button class="btn btn-danger" style="margin-right:10px;" (click)="logout()">Logout</button>
+          <input type="number" class="form-control" style="width:200px" [(ngModel)]="search" placeholder="search for employee"><button class="btn btn-success" (click)="searchEmp()">Search</button>
+        </div>
+    </nav>
+    
+</body>
+</html>
+</div>
+<div [class]="loginEnable?'hide':'show'">
+<div [class]="adminEnable?'show':'hide'">
+  <h2 style="margin-top:5% ;color:red;text-align: center;">{{message}}</h2>
+  <h1 align="center" style="color:purple;">Admin login</h1>
+      <table border="1" class="table table-stripped">
+      <tr><td>UserName</td><td><input class="form-control" type="text" value="admin" [(ngModel)]="adminref.name" placeholder="Enter user name"></td></tr>
+      <tr><td>Password</td><td><input class="form-control" type="password" [(ngModel)]="adminref.password" placeholder="Enter Password" required></td></tr>
+      <tr><td colspan="2" align="center"><button class="btn btn-success" type="button" (click)="checklogin()">Login</button></td></tr>
+    </table>
+    <div align="center"><button class="btn btn-dark" (click)="forget()" >forget password</button></div>
+</div>
+
+<div [class]="forgetEnable?'show':'hide'">
+  <h2 style="margin-top:5% ;color:rgb(255, 0, 0);text-align: center;">{{errormessage}}</h2>
+  <h2 style="margin-top:5% ;color:green;text-align: center;">{{resetmessage}}</h2>
+  <h1 align="center" style="color:purple;">Reset password</h1>
+      <table border="1" class="table table-stripped">
+      <tr><td>New Password</td><td><input class="form-control" type="text" [(ngModel)]="newpass" placeholder="Enter new Password"></td></tr>
+      <tr><td>Confirm Password</td><td><input class="form-control" type="password" [(ngModel)]="confirmpass" placeholder="Re-ener new password" required></td></tr>
+      <tr><td colspan="2" align="center"><button class="btn btn-success" type="button" (click)="reset()">Reset password</button></td></tr>
+    </table>
+    <div align="center"><button class="btn btn-dark" (click)="login()" >Go to login</button></div>
+</div>
+</div>
+<router-outlet></router-outlet>

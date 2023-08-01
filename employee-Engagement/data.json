@@ -1,0 +1,27 @@
+{
+  "Data": {
+    "hasdata": false,
+    "data": ""
+  },
+  "islogin": {
+    "login": false
+  },
+  "admin": {
+    "name": "admin",
+    "password": "admin"
+  },
+  "employees": [
+    {
+      "id": 1,
+      "first_name": "sai",
+      "last_name": "krishna",
+      "email": "mklsdvsmdvslm"
+    },
+    {
+      "id": 2,
+      "first_name": "john",
+      "last_name": "wick",
+      "email": "fbcghkj"
+    }
+  ]
+}

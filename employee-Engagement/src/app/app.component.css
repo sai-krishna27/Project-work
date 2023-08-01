@@ -1,0 +1,29 @@
+.navs{
+  float: right;
+}
+
+.nav-links{
+  border: 1px;
+  border-radius:20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color:#4c37b3;
+  background-color: rgb(255, 255, 255);
+  margin:0px 5px;
+  
+}
+.nav-links:hover{
+  color:rgb(255, 255, 255);
+  background-color: #4c37b3;
+}
+
+
+
+.show{
+  display:contents;
+}
+.hide{
+  display: none;
+}
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
+</head>
+<body>
+  
+  <div [class]="loginEnable?'show':'hide'">
+  <div [class]="getEnable?'show':'hide'">
+    <button class="btn btn-success" style="margin-top: 5%;" (click)="addNewEmployee()">Add New Employee</button>
+    <table border="1" class="table table-striped">
+    <tr><th>Id</th><th>First name</th><th>Last name</th><th>Email</th><th>Action</th></tr>
+    <tr *ngFor="let employee of employees">
+    <td>{{employee.id}}</td>
+    <td>{{employee.first_name}}</td>
+    <td>{{employee.last_name}}</td>
+    <td>{{employee.email}}</td>
+    <td><button class="btn btn-success" (click)="viewdetails(employee)">View Details</button></td>
+    </tr>
+    </table>
+  </div>
+  <div [class]="addEnable?'show':'hide'">
+    <h1 align="center" style="margin-top:5% ;color:purple;">Add New Employee</h1>
+      <table border="1" class="table table-stripped">
+        <tr><td>Id</td><td><input class="form-control" type="number" [(ngModel)]="tempemployee.id"></td></tr>
+      <tr><td>First Name</td><td><input class="form-control" type="text" [(ngModel)]="tempemployee.first_name" required></td></tr>
+      <tr><td>Last Name</td><td><input class="form-control" type="text" [(ngModel)]="tempemployee.last_name" required></td></tr>
+      <tr><td>Email</td><td><input class="form-control" type="text" [(ngModel)]="tempemployee.email" required></td></tr>
+      <tr><td colspan="2" align="center"><button class="btn btn-success" type="button" (click)="addEmployee()">Add Employee</button></td></tr>
+    </table>
+  </div>
+
+  <div [class]="viewEnable?'show':'hide'">
+    <h1 align="center" style="margin-top:5% ;color:purple;">Details of {{tempview.first_name}} {{tempview.last_name}}</h1>
+      <table border="1" class="table table-stripped">
+      <tr><td>Id</td><td>{{tempview.id}}</td></tr>
+      <tr><td>First Name</td><td>{{tempview.first_name}}</td></tr>
+      <tr><td>Last Name</td><td>{{tempview.last_name}}</td></tr>
+      <tr><td>Email</td><td>{{tempview.email}}</td></tr>
+      <tr><td><button class="btn btn-success" type="button" (click)="getemps()">Employees list</button>
+        <button class="btn btn-dark" type="button" (click)="editemps()">Edit Employee</button>
+        <button class="btn btn-danger" type="button" (click)="deleteEmployee(tempview.id)">Delete Employee</button></td></tr>
+    </table>
+  </div>
+
+  <div [class]="editEnable?'show':'hide'">
+    <h1 align="center" style="margin-top:5% ;color:purple;">Edit {{tempview.first_name}} {{tempview.last_name}}</h1>
+      <table border="1" class="table table-stripped">
+      <tr><td>Id</td><td><input class="form-control" type="text" [(ngModel)]="tempview.id" disabled></td></tr>
+      <tr><td>First Name</td><td><input class="form-control" type="text" [(ngModel)]="tempview.first_name" required></td></tr>
+      <tr><td>Last Name</td><td><input class="form-control" type="text" [(ngModel)]="tempview.last_name" required></td></tr>
+      <tr><td>Email</td><td><input class="form-control" type="text" [(ngModel)]="tempview.email" required></td></tr>
+      <tr><td colspan="2" align="center"><button class="btn btn-success" type="button" (click)="updateEmployee()">Update Employee</button></td></tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>
